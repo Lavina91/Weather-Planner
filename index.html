@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript"></script>
+
+
+
+<nav class="navbar fixed-top navbar-light bg-light">
+    <div class="container-fluid" id=weather-dashboard>
+        <a class="navbar-brand" id='WeatherDashboard'>Weather Dashboard</a>
+    </div>
+</nav>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" id='top'>
+            <form class="row g-3">
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="city-input" placeholder="Enter a city">
+                </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3" id="searchBtn">Search</button>
+            </div>
+        </form>
+        </div>
+        <div class="col-md-8" id='top'>
+            <div class="card">
+                <div class="card-body" id='currentCity'>
+                    <blockquote class="blockquote mb-0">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row">
+
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body" id='nextDay'>
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body" id="nextDay1">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body" id='nextDay2'>
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body" id="nextDay3">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body" id='nextDay4'>
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>  
+</div>
+
+
+
+
+
+<script> 
+
+$('#searchBtn').on('click', function(){
+
+
+event.preventDefault();
+
+var city = $('#city-input').val();
+
+
+    var queryURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=097365eec18aa66e2025fa7ae2dc7c31'
+
+    $.ajax({
+        url: queryURL,
+        method: 'GET'
+
+    }).then(function (response) {
+
+
+        console.log(response)
+
+
+
+
+
+
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+})
+
+
+
+
+</script>
+    
+</body>
+</html>
