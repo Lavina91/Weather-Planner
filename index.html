@@ -40,9 +40,10 @@
         <div class="col-md-8" id='top'>
             <div class="card">
                 <div class="card-body" id='currentCity'>
-                    <blockquote class="blockquote mb-0">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    </blockquote>
+                  <div class="city"></div>
+                  <div class="temp"></div>
+                  <div class="humidity"></div>
+                  <div class="wind-speed"></div>
                 </div>
             </div>
         </div>
@@ -119,6 +120,23 @@ var city = $('#city-input').val();
 
 
         console.log(response)
+
+
+
+        $('.city').html('<h3>' + response.city.name + ' ' + response.list[3].dt_txt + '</h3>')
+
+        
+        var tempF = (response.list[3].main.temp - 273.15) * 1.8 + 32;
+        $('.temp').text('Temperature: ' + tempF.toFixed(2) + ' ' + 'F')
+
+
+        $('.humidity').text('Humidity: ' + response.list[3].main.humidity + '%');
+
+        $('.wind-speed').text('Wind Speed: ' + response.list[3].wind.speed + 'MPH')
+
+
+
+
 
 
 
