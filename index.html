@@ -41,52 +41,68 @@
             <div class="card">
                 <div class="card-body" id='currentCity'>
                   <div class="city"></div>
-                  <div class="temp"></div>
-                  <div class="humidity"></div>
+                  <div class="temp0"></div>
+                  <div class="humidity0"></div>
                   <div class="wind-speed"></div>
                 </div>
             </div>
         </div>
+    </div> 
+    <div class="row" id="buttonDiv">
+        
     </div>
         <div class="row">
 
+            <h3>5 day Forcast</h3>
+
             <div class="col-sm-2">
                 <div class="card">
-                    <div class="card-body" id='nextDay'>
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div class="card-body"'>
+                        <div id='nextDay'></div>
+                        <div class="condition"></div>
+                        <div class="temp"></div>
+                        <div class="humidity"></div>
+                        
                     </div>
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="card">
-                    <div class="card-body" id="nextDay1">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div class="card-body">
+                        <div id='nextDay1'></div>
+                        <div class="condition1"></div>
+                        <div class="temp1"></div>
+                        <div class="humidity1"></div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="card">
-                    <div class="card-body" id='nextDay2'>
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div class="card-body">
+                        <div id='nextDay2'></div>
+                        <div class="condition2"></div>
+                        <div class="temp2"></div>
+                        <div class="humidity2"></div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="card">
-                    <div class="card-body" id="nextDay3">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div class="card-body">
+                        <div id='nextDay3'></div>
+                        <div class="condition3"></div>
+                        <div class="temp3"></div>
+                        <div class="humidity3"></div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="card">
-                    <div class="card-body" id='nextDay4'>
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div class="card-body">
+                        <div id='nextDay4'></div>
+                        <div class="condition4"></div>
+                        <div class="temp4"></div>
+                        <div class="humidity4"></div>
                     </div>
                 </div>
             </div>
@@ -120,24 +136,89 @@ var city = $('#city-input').val();
 
 
         console.log(response)
+        
 
 
 
-        $('.city').html('<h3>' + response.city.name + ' ' + response.list[3].dt_txt + '</h3>')
+
+
+
+
+
+        // // ------------------------ Start Of current city Info ----------------------
+
+        // $('.city').html('<h3>' + response.city.name + ' ' + response.list[3].dt_txt + ' ' + response.list[3].weather[0].description + '</h3>')
 
         
-        var tempF = (response.list[3].main.temp - 273.15) * 1.8 + 32;
+        // var tempF = (response.list[3].main.temp - 273.15) * 1.8 + 32;
+        // $('.temp').text('Temperature: ' + tempF.toFixed(2) + ' ' + 'F')
+
+
+        // $('.humidity').text('Humidity: ' + response.list[3].main.humidity + '%');
+
+        // $('.wind-speed').text('Wind Speed: ' + response.list[3].wind.speed + 'MPH')
+
+
+        // // ------------------ Start of next day info -------------------
+
+
+        $('#nextDay').text(response.list[3].dt_txt)
+
+        $('.condition').text('Condition: ' + response.list[3].weather[0].description)
+
+         var tempF = (response.list[3].main.temp - 273.15) * 1.8 + 32;
         $('.temp').text('Temperature: ' + tempF.toFixed(2) + ' ' + 'F')
 
-
-        $('.humidity').text('Humidity: ' + response.list[3].main.humidity + '%');
-
-        $('.wind-speed').text('Wind Speed: ' + response.list[3].wind.speed + 'MPH')
+        $('.humidity').text('Humidity: ' + response.list[3].main.humidity)
 
 
+        // ------------------ Start of next day 1 info -------------------
 
+         $('#nextDay1').text(response.list[11].dt_txt)
 
+        $('.condition1').text('Condition: ' + response.list[11].weather[0].description)
 
+        var tempF = (response.list[11].main.temp - 273.15) * 1.8 + 32;
+        $('.temp1').text('Temperature: ' + tempF.toFixed(2) + ' ' + 'F')
+
+        $('.humidity1').text('Humidity: ' + response.list[11].main.humidity)
+        
+
+        // ------------------ Start of next day 2 info -------------------
+
+         $('#nextDay2').text(response.list[19].dt_txt)
+
+        $('.condition2').text('Condition: ' + response.list[19].weather[0].description)
+
+        var tempF = (response.list[19].main.temp - 273.15) * 1.8 + 32;
+        $('.temp2').text('Temperature: ' + tempF.toFixed(2) + ' ' + 'F')
+
+        $('.humidity2').text('Humidity: ' + response.list[19].main.humidity)
+        
+
+        // ------------------ Start of next day 3 info -------------------
+
+         $('#nextDay3').text(response.list[27].dt_txt)
+
+        $('.condition3').text('Condition: ' + response.list[27].weather[0].description)
+
+        var tempF = (response.list[27].main.temp - 273.15) * 1.8 + 32;
+        $('.temp3').text('Temperature: ' + tempF.toFixed(2) + ' ' + 'F')
+
+        $('.humidity3').text('Humidity: ' + response.list[27].main.humidity)
+        
+
+        // ------------------ Start of next day 4 info -------------------
+
+         $('#nextDay4').text(response.list[35].dt_txt)
+
+        $('.condition4').text('Condition: ' + response.list[35].weather[0].description)
+
+        var tempF = (response.list[35].main.temp - 273.15) * 1.8 + 32;
+        $('.temp4').text('Temperature: ' + tempF.toFixed(2) + ' ' + 'F')
+
+        $('.humidity4').text('Humidity: ' + response.list[35].main.humidity)
+        
 
 
 
