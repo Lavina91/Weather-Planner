@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript"></script>
-
-
-
-<nav class="navbar fixed-top navbar-light bg-light">
-    <div class="container-fluid" id=weather-dashboard>
-        <a class="navbar-brand" id='WeatherDashboard'>Weather Dashboard</a>
-    </div>
-</nav>
 
 
 
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4" id='top'>
-            <form class="row g-3">
-                <div class="col-auto">
-                    <input type="text" class="form-control" id="city-input" placeholder="Enter a city">
-                </div>
-            <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-3" id="searchBtn">Search</button>
-            </div>
-        </form>
+
+
+    <nav class="navbar fixed-top navbar-light bg-light">
+        <div class="container-fluid" id=weather-dashboard>
+            <a class="navbar-brand" id='WeatherDashboard'>Weather Dashboard</a>
         </div>
-        <div class="col-md-8" id='top'>
-            <div class="card">
-                <div class="card-body" id='currentCity'>
-                  <div class="city"></div>
-                  <div class="temp0"></div>
-                  <div class="humidity0"></div>
-                  <div class="wind-speed"></div>
+    </nav>
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" id='top'>
+                <form class="row g-3">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" id="city-input" name="search2"
+                            placeholder="Enter a city">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3" id="add-city">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8" id='top'>
+                <div class="card">
+                    <div class="card-body" id='currentCity'>
+                        <div class="city"></div>
+                        <div class="condition0"></div>
+                        <div class="temp0"></div>
+                        <div class="uvi0"></div>
+                        <div class="humidity0"></div>
+                        <div class="wind-speed"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div> 
-    <div class="row" id="buttonDiv">
-        
-    </div>
+
         <div class="row">
 
             <h3>5 day Forcast</h3>
@@ -58,223 +63,77 @@
             <div class="col-sm-2">
                 <div class="card">
                     <div class="card-body"'>
-                        <div id='nextDay'></div>
-                        <div class="condition"></div>
-                        <div class="temp"></div>
-                        <div class="humidity"></div>
-                        
-                    </div>
+                        <div id=' nextDay'></div>
+                    <div class="condition1"></div>
+                    <div class="temp1"></div>
+                    <div class="uvi1"></div>
+                    <div class="humidity1"></div>
+
                 </div>
             </div>
-            <div class="col-sm-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div id='nextDay1'></div>
-                        <div class="condition1"></div>
-                        <div class="temp1"></div>
-                        <div class="humidity1"></div>
-                    </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-body">
+                    <div id='nextDay1'></div>
+                    <div class="condition2"></div>
+                    <div class="temp2"></div>
+                    <div class="uvi2"></div>
+                    <div class="humidity2"></div>
                 </div>
             </div>
-            <div class="col-sm-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div id='nextDay2'></div>
-                        <div class="condition2"></div>
-                        <div class="temp2"></div>
-                        <div class="humidity2"></div>
-                    </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-body">
+                    <div id='nextDay2'></div>
+                    <div class="condition3"></div>
+                    <div class="temp3"></div>
+                    <div class="uvi3"></div>
+                    <div class="humidity3"></div>
                 </div>
             </div>
-            <div class="col-sm-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div id='nextDay3'></div>
-                        <div class="condition3"></div>
-                        <div class="temp3"></div>
-                        <div class="humidity3"></div>
-                    </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-body">
+                    <div id='nextDay3'></div>
+                    <div class="condition4"></div>
+                    <div class="temp4"></div>
+                    <div class="uvi4"></div>
+                    <div class="humidity4"></div>
                 </div>
             </div>
-            <div class="col-sm-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div id='nextDay4'></div>
-                        <div class="condition4"></div>
-                        <div class="temp4"></div>
-                        <div class="humidity4"></div>
-                    </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-body">
+                    <div id='nextDay4'></div>
+                    <div class="condition5"></div>
+                    <div class="temp5"></div>
+                    <div class="uvi5"></div>
+                    <div class="humidity5"></div>
                 </div>
             </div>
+        </div>
 
 
 
-        </div>  
-</div>
+    </div>
+    </div>
 
+    <div class="row" id="buttonDiv">
+        <h1 id="recentCities">Recent Cities</h1>
+    </div>
 
 
 
 
-<script> 
 
-var inputs = []
-console.log(inputs)
 
 
+    <script src="./script.js"></script>
 
-
-function renderButtons() {
-
-    
-// $('#buttonDiv').empty();
-
-
-var cities = $('<button>');
-
-cities.addClass('btn btn-primary mb-3 btn-sm')
-
-cities.text(localStorage.getItem('city'));
-
-console.log(localStorage.getItem('city'))
-
-$('#buttonDiv').append(cities)
-
-
-
-
-
-}
-
-
-
-
-
-
-
-$('#searchBtn').on('click', function(){
-
-event.preventDefault();
-
-var city = $('#city-input').val();
-
-
-
-// var qURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=097365eec18aa66e2025fa7ae2dc7c31'
-
-
-
-// $.ajax({
-//     URL: qURL,
-//     method: 'GET'
-
-// }).then(function(data) {
-
-// console.log(data)
-
-// })
-
-
-
-
-
-
-
-
-   var queryURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=097365eec18aa66e2025fa7ae2dc7c31'
-
-    $.ajax({
-        url: queryURL,
-        method: 'GET'
-
-    }).then(function (response) {
-
-
-        console.log(response)
-        
-
-        // // ------------------ Start of next day info -------------------
-
-
-        $('#nextDay').text(response.list[3].dt_txt)
-
-        $('.condition').text('Condition: ' + response.list[3].weather[0].description)
-
-         var tempF = (response.list[3].main.temp - 273.15) * 1.8 + 32;
-        $('.temp').text('Temperature: ' + tempF.toFixed(2) + ' ' + 'F')
-
-        $('.humidity').text('Humidity: ' + response.list[3].main.humidity)
-
-
-        // ------------------ Start of next day 1 info -------------------
-
-         $('#nextDay1').text(response.list[11].dt_txt)
-
-        $('.condition1').text('Condition: ' + response.list[11].weather[0].description)
-
-        var tempF = (response.list[11].main.temp - 273.15) * 1.8 + 32;
-        $('.temp1').text('Temperature: ' + tempF.toFixed(2) + ' ' + 'F')
-
-        $('.humidity1').text('Humidity: ' + response.list[11].main.humidity)
-        
-
-        // ------------------ Start of next day 2 info -------------------
-
-         $('#nextDay2').text(response.list[19].dt_txt)
-
-        $('.condition2').text('Condition: ' + response.list[19].weather[0].description)
-
-        var tempF = (response.list[19].main.temp - 273.15) * 1.8 + 32;
-        $('.temp2').text('Temperature: ' + tempF.toFixed(2) + ' ' + 'F')
-
-        $('.humidity2').text('Humidity: ' + response.list[19].main.humidity)
-        
-
-        // ------------------ Start of next day 3 info -------------------
-
-         $('#nextDay3').text(response.list[27].dt_txt)
-
-        $('.condition3').text('Condition: ' + response.list[27].weather[0].description)
-
-        var tempF = (response.list[27].main.temp - 273.15) * 1.8 + 32;
-        $('.temp3').text('Temperature: ' + tempF.toFixed(2) + ' ' + 'F')
-
-        $('.humidity3').text('Humidity: ' + response.list[27].main.humidity)
-        
-
-        // ------------------ Start of next day 4 info -------------------
-
-         $('#nextDay4').text(response.list[35].dt_txt)
-
-        $('.condition4').text('Condition: ' + response.list[35].weather[0].description)
-
-        var tempF = (response.list[35].main.temp - 273.15) * 1.8 + 32;
-        $('.temp4').text('Temperature: ' + tempF.toFixed(2) + ' ' + 'F')
-
-        $('.humidity4').text('Humidity: ' + response.list[35].main.humidity)
-        
-
-
-
-
-
-
-    })
-
-    inputs.push(city)
-
-    localStorage.setItem('city', city)
-    // localStorage.getItem('city')
-
-
-  renderButtons();
-
-})
-
-
-
-
-</script>
-    
 </body>
+
 </html>
