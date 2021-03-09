@@ -1,0 +1,15 @@
+#weather-dashboard {
+    background-color: grey;
+}
+
+#top {
+    margin-top: 100px;
+}
+
+#recentCities {
+    margin-top: 15%;
+}
+
+button {
+    margin-left: 10px;
+}
