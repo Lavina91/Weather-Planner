@@ -1,5 +1,13 @@
+body {
+    background-image: url(https://images.pexels.com/photos/531756/pexels-photo-531756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+}
+
 #weather-dashboard {
-    background-color: grey;
+    background-color: #ededed;
+}
+
+#WeatherDashboard {
+    margin-left: 40%;
 }
 
 #top {
@@ -12,4 +20,29 @@
 
 button {
     margin-left: 10px;
+}
+
+#row1 {
+    margin-top: 70px;
+}
+
+.card-body {
+    text-align: center;
+    padding: 0px;
+}
+
+.temp1 {
+    padding: 9px;
+}
+.temp2 {
+    padding: 9px;
+}
+.temp3 {
+    padding: 9px;
+}
+.temp4 {
+    padding: 9px;
+}
+.temp5 {
+    padding: 9px;
 }

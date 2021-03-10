@@ -1,16 +1,52 @@
 // empty array to store all the cities searched 
-const searchCities = []
+let searchCities = []
 
 
-// functions needed
+const init = () => { 
 
-// const init = () => { };
+    let storageCities = JSON.parse(localStorage.getItem('city'));
 
-const getAllWeather = (city) => {
+    for (let i = 0; i < storageCities.length; i++) {
+        if (storageCities === null) {
+            searchCities = [];
+        } else {
+            searchCities.push(storageCities[i])
+        }
+
+        renderCityButtons()
+    }
+
+    
+    
+};
+
+
+const renderCityButtons = () => {
+    $('#buttonDiv').empty();
 
    
 
-    // making an ajax call to get the long & lat that the user inputs 
+    for (let i = 0; i < searchCities.length; i++) {
+        let btnEl = $('<button>');
+
+        btnEl.addClass('btn btn-primary mb-3 btn-sm')
+        btnEl.attr('style', 'width:100px')
+        btnEl.text(searchCities[i])
+
+        $('#buttonDiv').append(btnEl)
+
+        console.log(searchCities[i])
+
+        btnEl.on('click', function (event) {
+            getAllWeather(searchCities[i])
+        })
+    }
+}
+
+
+const getAllWeather = (city) => {
+
+   // making an ajax call to get the long & lat that the user inputs 
     $.ajax({
         url: `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=7500a47b30cd4310992a9f8b1a25d78d`,
         method: 'GET'
@@ -215,33 +251,9 @@ const getAllWeather = (city) => {
             $('.humidity5').text(`Humidity: ${res.daily[5].humidity}`)
         })
     });
-
-    // cityButtons();
 };
 
 
-const cityButtons = () => {
-    $('#buttonDiv').empty();
-
-    searchCities.forEach(city => {
-        // $('#buttonDiv').empty();
-        console.log(city)
-
-        btnEl = $('<button>');
-
-        btnEl.addClass('btn btn-primary mb-3 btn-sm')
-        btnEl.attr('style', 'width:100px')
-        btnEl.text(city)
-
-       $('#buttonDiv').append(btnEl)
-
-
-        btnEl.on('click', function (event) {
-            getAllWeather(city)
-        })
-
-    })
-}
 
 $('#add-city').on('click', function (event) {
     event.preventDefault();
@@ -254,8 +266,11 @@ $('#add-city').on('click', function (event) {
     searchCities.push(cityName)
     localStorage.setItem('city', JSON.stringify(searchCities))
 
-    cityButtons();
+    renderCityButtons();
 
 });
 
 
+
+
+init();
